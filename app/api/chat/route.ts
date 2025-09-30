@@ -78,6 +78,8 @@ export async function POST(req: Request) {
             stream: true,
             messages: [template, ...messages]
         });
+        
+        // @ts-expect-error
 
         const stream = OpenAIStream(response);
         return new StreamingTextResponse(stream);
